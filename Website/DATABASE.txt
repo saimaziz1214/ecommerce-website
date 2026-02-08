@@ -1,0 +1,13 @@
+DATABASE INFORMATION
+
+Database: MySQL
+Database name: afashion
+
+Tables:
+users
+products
+categories
+subcategories
+cart_items
+
+Database managed using DBeaver.

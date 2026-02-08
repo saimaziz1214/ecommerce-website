@@ -1,0 +1,8 @@
+LIBRARIES USED
+
+Flask
+mysql-connector-python
+Flask-WTF
+WTForms
+bcrypt
+email-validator
