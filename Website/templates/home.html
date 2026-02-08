@@ -1,0 +1,366 @@
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+></script>
+<script type="text/javascript">
+  (function () {
+    emailjs.init({
+      publicKey: "CW-PTsYruAhYBlQbb",
+    });
+  })();
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Beauty Brand</title>
+
+    <!-- Google Font for luxury feel -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- <link rel="stylesheet" href="home.css" /> -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="{{url_for('shop')}}">Shop</a>
+        <a href="{{ url_for('add_to_cart') }}">Cart</a>
+          <a href="{{ url_for('account') }}">Account</a>
+           <!-- <a href="{{ url_for('dashboard_page') }}">Dashboard</a> -->
+            <a href="/dashboard/">Dashboard</a>
+
+        <a href="search.html" id="dontshow">Search</a>
+      </div>
+      <div class="navbar-right">
+        <!-- <a href="about.html">About</a> -->
+         <!-- <i class="fa-solid fa-cart-shopping"></i> -->
+         <a href="{{ url_for('about') }}"></a>
+
+        <!-- <a href="account.html">Account</a> -->
+         <!-- <a href="{{ url_for('add_to_cart') }}">Cart</a>
+          <a href="{{ url_for('account') }}">Account</a> -->
+      </div>
+    </div>
+    <!-- FULL-WIDTH SEARCH BAR -->
+    <div id="searchContainer" class="search-container">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+    </div>
+
+    <!-- Home Section Video -->
+    <section class="hero">
+      <video autoplay muted loop playsinline>
+        <source src="{{ url_for('static', filename='media/video.mp4') }}" type="video/mp4" />
+        
+    
+      </video>
+
+      <div class="overlay"></div>
+    </section>
+
+    <!-- Products line after video -->
+    <section class="products-line">
+      <h2>Our Featured Products</h2>
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="img-container">
+            <!-- <img src="media/perfume1.jpg" alt="Product 1" />
+            <img
+              src="media/perfume1-hover.jpg"
+              alt="Product 1 Hover"
+              class="hover-img"
+            /> -->
+            <img src="{{ url_for('static', filename='media/perfume1.jpg') }}" alt="Product 1" />
+            <img
+              src="{{ url_for('static', filename='media/perfume1-hover.jpg') }}"
+              alt="Product 1 Hover"
+              class="hover-img" />
+            
+          </div>
+          <h3>Devner Perfume</h3>
+          <p>$29.99</p>
+          <button>Buy Now</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="img-container">
+            <!-- <img src="media/perfume2.png" alt="Product 2" />
+            <img
+              src="media/perfume2-hover.jpg"
+              alt="Product 1 Hover"
+              class="hover-img"
+            /> -->
+            <img src="{{ url_for('static', filename='media/perfume2.png') }}" alt="Product 2" />
+            <img
+              src="{{ url_for('static', filename='media/perfume2-hover.jpg') }}"
+              alt="Product 1 Hover"
+              class="hover-img"/>
+          </div>
+          <h3>Luxury Perfume</h3>
+          <p>$49.99</p>
+          <button>Buy Now</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="img-container">
+            <!-- <img src="media/soap1.jpg" alt="Product 3" />
+            <img
+              src="media/soap1-hover.jpg"
+              alt="Product 1 Hover"
+              class="hover-img"
+            /> -->
+            <img src="{{ url_for('static', filename='media/soap1.jpg') }}" alt="Product 3" />
+            <img
+              src="{{ url_for('static', filename='media/soap1-hover.jpg') }}"
+              alt="Product 1 Hover"
+              class="hover-img"/>
+          </div>
+          <h3>Whitening Soap</h3>
+          <p>$24.99</p>
+          <button>Buy Now</button>
+        </div>
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="img-container">
+            <!-- <img src="media/lipstick1.jpg" alt="Product 3" />
+            <img
+              src="media/lipstick1-hover.jpg"
+              alt="Product 1 Hover"
+              class="hover-img"
+            /> -->
+            <img src="{{ url_for('static', filename='media/lipstick1.jpg') }}" alt="Product 3" />
+            <img
+              src="{{ url_for('static', filename='media/lipstick1-hover.jpg') }}"
+              alt="Product 1 Hover"
+              class="hover-img"/>
+          </div>
+          <h3>Lipstick</h3>
+          <p>$24.99</p>
+          <button>Buy Now</button>
+        </div>
+        <!-- Product 5 -->
+        <div class="product-card">
+          <div class="img-container">
+            <!-- <img src="media/mascara1.jpg" alt="Product 1" />
+            <img
+              src="media/mascara1-hover.jpg"
+              alt="Product 1 Hover"
+              class="hover-img"
+            /> -->
+            <img src="{{ url_for('static', filename='media/mascara1.jpg') }}" alt="Product 1" />
+            <img
+              src="{{ url_for('static', filename='media/mascara1-hover.jpg') }}"
+              alt="Product 1 Hover"
+              class="hover-img"/>
+          </div>
+          <h3>Eye Shadow Primer</h3>
+          <p>$29.99</p>
+          <button>Buy Now</button>
+        </div>
+        <!-- Product 6 -->
+        <div class="product-card">
+          <div class="img-container">
+            <!-- <img src="media/gloss1.png" alt="Product 1" />
+            <img
+              src="media/lips1-hover.jpg"
+              alt="Product 1 Hover"
+              class="hover-img"
+            /> -->
+            <img src="{{ url_for('static', filename='media/gloss1.png') }}" alt="Product 1" />
+            <img
+              src="{{ url_for('static', filename='media/lips1-hover.jpg') }}"
+              alt="Product 1 Hover"
+              class="hover-img"/>
+          </div>
+          <h3>Gloss</h3>
+          <p>$29.99</p>
+          <button>Buy Now</button>
+        </div>
+        <!-- Product 7 -->
+        <div class="product-card">
+          <div class="img-container">
+            <!-- <img src="media/perfume3.jpg" alt="Product 1" />
+            <img
+              src="media/perfumr3-hover.jpg"
+              alt="Product 1 Hover"
+              class="hover-img"
+            /> -->
+            <img src="{{ url_for('static', filename='media/perfume3.jpg') }}" alt="Product 1" />
+            <img
+              src="{{ url_for('static', filename='media/perfumr3-hover.jpg') }}"
+              alt="Product 1 Hover"
+              class="hover-img"/>
+          </div>
+          <h3>Devner Perfume</h3>
+          <p>$29.99</p>
+          <button>Buy Now</button>
+        </div>
+        <!-- Product 8 -->
+        <div class="product-card">
+          <div class="img-container">
+            <!-- <img src="media/perfume5.jpg" alt="Product 1" />
+            <img
+              src="media/perfume5-hover.jpg"
+              alt="Product 1 Hover"
+              class="hover-img"
+            /> -->
+            <img src="{{ url_for('static', filename='media/perfume5.jpg') }}" alt="Product 1" />
+            <img
+              src="{{ url_for('static', filename='media/perfume5-hover.jpg') }}"
+              alt="Product 1 Hover"
+              class="hover-img"/>
+          </div>
+          <h3>Devner Perfume</h3>
+          <p>$29.99</p>
+          <button>Buy Now</button>
+        </div>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="pagination">
+        <span class="dot active" data-page="1"></span>
+        <span class="dot" data-page="2"></span>
+      </div>
+    </section>
+  
+
+<!--map section -->
+<!-- Store Location Map -->
+<section class="store-location">
+  <h2>Visit Our Store</h2>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019124987522!2d-122.41941568468103!3d37.77492977975996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c4d432b0f%3A0x123456789abcdef!2sYour%20Store%20Name!5e0!3m2!1sen!2sus!4v1706100000000!5m2!1sen!2sus"
+      width="100%"
+      height="400"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+    <!-- Images after first product line -->
+
+    <div class="UltraImage">
+      <!-- <img src="media/mainimage1.avif" alt="Image 1" />
+      <img src="media/mainimage2.webp" alt="Image 2" /> -->
+        <img src="{{ url_for('static', filename='media/mainimage1.avif') }}" alt="Image 1" />
+        <img src="{{ url_for('static', filename='media/mainimage2.webp') }}" alt="Image 2" />
+
+      <div class="subscribe-box">
+        <h2>Subscribe for announcements</h2>
+        <div class="subscribe-form">
+          <input type="email" id="userEmail" placeholder="Enter your email" />
+          <button id="subscribeBtn">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer section  -->
+    <footer>
+      <div class="footer-container">
+        <!-- Upper Section: Logo + Partners -->
+        <div class="footer-upper">
+          <div class="footer-logo">
+            <!-- <img src="media/logo.png" alt="A Fashion Logo" /> -->
+            <img src="{{ url_for('static', filename='media/logo.png') }}" alt="A Fashion Logo" />
+          </div>
+          <div class="collab">
+            <h2>Our Trusted Partners</h2>
+            <ul>
+              <li>ZARA</li>
+              <li>H&M</li>
+              <li>Sephora</li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h2>Contact Us</h2>
+            <p>
+              Email:
+              <a href="mailto:fashionsupport@gmail.com"
+                >fashionsupport@gmail.com</a
+              >
+            </p>
+          </div>
+        </div>
+
+        <!-- Middle Section: Social Media -->
+        <div class="footer-social">
+          <h2>Follow Us</h2>
+          <div class="social-icons">
+            <a href="https://instagram.com" target="_blank"
+              >
+              <!-- <img src="media/instagram.png" alt="Instagram"
+            /> -->
+                <img src="{{ url_for('static', filename='media/instagram.png') }}" alt="Instagram" />
+        </a>
+            <a href="https://twitter.com" target="_blank"
+              >
+              <!-- <img src="media/twitter.png" alt="Twitter"
+            /> -->
+                <img src="{{ url_for('static', filename='media/twitter.png') }}" alt="Twitter" />
+        </a>
+            <a href="media/https://facebook.com" target="_blank"
+              >
+              <!-- <img src="media/facebook.png" alt="Facebook"
+            /> -->
+                <img src="{{ url_for('static', filename='media/facebook.png') }}" alt="Facebook" />
+        </a>
+          </div>
+        </div>
+
+        <!-- Lower Section: Legal -->
+        <div class="footer-lower">
+          <p>© 2025 A Fashion. All rights reserved.</p>
+          <ul class="footer-links">
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/returns.html">Returns & Refunds</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- for subscribe functionality -->
+    <script>
+      document
+        .getElementById("subscribeBtn")
+        .addEventListener("click", function () {
+          const email = document.getElementById("userEmail").value;
+
+          if (email === "") {
+            alert("Please enter your email");
+            return;
+          }
+
+          emailjs
+            .send("service_odaf45n", "template_ru7ntsv", {
+              to_email: email,
+            })
+            .then(
+              function (response) {
+                alert("You have successfully subscribed!");
+              },
+              function (error) {
+                alert("Oops, something went wrong...");
+              }
+            );
+        });
+    </script>
+
+    <!-- <script src="home.js"></script> -->
+     <script src="{{ url_for('static', filename='Javascript/home.js') }}"></script>
+
+
+  </body>
+</html>

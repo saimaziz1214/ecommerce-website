@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account | Your Store</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/account.css') }}">
+</head>
+<body>
+
+    <div class="account-container">
+        <h1>My Account</h1>
+        <p>Access your account or create a new one</p>
+
+        <div class="option">
+            <a href="{{ url_for('register') }}">
+                <h2>New User</h2>
+                <span>Create an account to start shopping</span>
+            </a>
+        </div>
+
+        <div class="option">
+            <a href="{{ url_for('login') }}">
+                <h2>Existing User</h2>
+                <span>Already have an account? Sign in</span>
+            </a>
+        </div>
+
+        <div class="footer-text">
+            © 2026 Your Store
+        </div>
+    </div>
+
+</body>
+</html>

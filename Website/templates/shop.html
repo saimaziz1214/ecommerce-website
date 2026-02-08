@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/shop1.css') }}">
+    <script src="{{ url_for('static', filename='Javascript/shop.js') }}" defer></script>
+    
+</head>
+
+<body>
+
+<h1>Shop Our Products</h1>
+
+<div class="shop-layout">
+
+  <!-- FILTER SIDEBAR -->
+  <aside class="filter-panel">
+    <h2>Filter</h2>
+
+    <!-- Category -->
+    <div class="filter-section">
+      <h4>Category</h4>
+      <div class="filter-pills">
+        <a href="{{ url_for('shop') }}"
+           class="{{ 'active' if not selected_category else '' }}">All</a>
+
+        {% for category in categories %}
+          <a href="{{ url_for('shop') }}?category={{ category }}"
+             class="{{ 'active' if selected_category == category else '' }}">
+            {{ category }}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Product Type -->
+    <!-- <div class="filter-section">
+      <h4>Product Type</h4>
+      <div class="filter-pills">
+        <a href="{{ url_for('shop') }}?type=face">Face</a>
+        <a href="{{ url_for('shop') }}?type=body">Body</a>
+        <a href="{{ url_for('shop') }}?type=fragrance">Fragrance</a>
+        <a href="{{ url_for('shop') }}?type=makeup">Makeup</a>
+      </div>
+    </div> -->
+
+    <!-- Price -->
+    <div class="filter-section">
+      <h4>Price Range</h4>
+      <form method="get" action="{{ url_for('shop') }}" class="price-form">
+        <input type="number" name="min_price" placeholder="Min">
+        <span>—</span>
+        <input type="number" name="max_price" placeholder="Max">
+        <button type="submit">Apply</button>
+      </form>
+    </div>
+
+    <!-- Sort -->
+    <div class="filter-section">
+      <h4>Sort</h4>
+      <div class="filter-pills">
+        <a href="{{ url_for('shop') }}?sort=low">Price ↑</a>
+        <a href="{{ url_for('shop') }}?sort=high">Price ↓</a>
+      </div>
+    </div>
+
+    <!-- Clear -->
+    <a href="{{ url_for('shop') }}" class="clear-filters">Clear all</a>
+  </aside>
+
+  <!-- PRODUCTS GRID -->
+  <div class="products">
+    {% for product in products %}
+      <div class="product-card">
+        <img src="{{ product.image_url or 'https://via.placeholder.com/200' }}"
+             alt="{{ product.product_name }}">
+
+        <h3>
+          {{ product.product_name[:25] }}
+          {% if product.product_name|length > 25 %}...{% endif %}
+        </h3>
+
+        <p>${{ product.price }}</p>
+
+        <div class="buttons">
+          <button onclick="addToCart('{{ product.product_id }}')">
+            Add to Cart
+          </button>
+
+          {% if product.product_url %}
+            <a href="{{ product.product_url }}" target="_blank">Buy Now</a>
+          {% else %}
+            <p class="link-unavailable">Link not available</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+</body>
+</html>

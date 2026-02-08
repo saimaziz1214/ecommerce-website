@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Beauty Brand</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Optional Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- Your CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/register.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="register-page">
+      <div class="register-container">
+        <h1>Create Your Account</h1>
+        <p class="subtitle">Sign up to experience luxury</p>
+
+        <form action="/register" method="POST" class="register-form">
+          {{ form.hidden_tag() }}
+
+          <div class="form-group">
+            {{ form.name.label(class="label") }}
+            {{ form.name(class="form-control", placeholder="Enter your name") }}
+            {% if form.name.errors %}
+              <div class="error">
+                {% for error in form.name.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="form-group">
+            {{ form.email.label(class="label") }}
+            {{ form.email(class="form-control", placeholder="Enter your email") }}
+            {% if form.email.errors %}
+              <div class="error">
+                {% for error in form.email.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="form-group">
+            {{ form.password.label(class="label") }}
+            {{ form.password(class="form-control", placeholder="Enter your password") }}
+            {% if form.password.errors %}
+              <div class="error">
+                {% for error in form.password.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+
+          {{ form.submit(class="btn-submit") }}
+
+          <p class="login-text">
+            Already have an account?
+            <a href="{{ url_for('login') }}">Login</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

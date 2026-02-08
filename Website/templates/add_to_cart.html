@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/add_to_cart.css') }}">
+</head>
+<body>
+
+<div class="cart-container">
+    <h1>Your Cart</h1>
+
+    {% if cart_items %}
+    <div class="cart-card">
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td class="product-name">{{ item.product_name }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td class="total">${{ item.price * item.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="cart-footer">
+            <a href="/" class="continue">Continue Shopping</a>
+            <button class="checkout">Checkout</button>
+        </div>
+    </div>
+    {% else %}
+        <p class="empty-cart">Your cart is empty.</p>
+        <a href="/" class="continue">Start Shopping</a>
+    {% endif %}
+</div>
+
+</body>
+</html>
